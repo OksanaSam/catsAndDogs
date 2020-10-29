@@ -3,7 +3,13 @@ import { usePaginatedQuery } from "react-query";
 // import { useQuery } from "react-query";
 import Dog from "./Dog";
 
-const fetchMoreDogs = async (key, page) => {
+/**
+ * @function
+ * @param {number} - page number
+ * @returns {object}
+ */
+
+const fetchMoreDogs = async (page) => {
   const res = await fetch(
     `https://api.thedogapi.com/v1/images/search?size=med&mime_types=jpg&format=json&has_breeds=true&order=RANDOM&page=${page}&limit=5`
   );
@@ -14,6 +20,13 @@ const fetchMoreDogs = async (key, page) => {
 //   const res = await fetch("https://dog.ceo/api/breeds/list/all");
 //   return res.json();
 // };
+
+/**
+ * Functional react component for dogs list
+ * @function
+ * @param none
+ * @returns {JSX.Element} - Rendered component
+ */
 
 const Dogs = () => {
   // const { data, status } = useQuery("breeds", fetchDogs);

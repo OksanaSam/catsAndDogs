@@ -2,10 +2,23 @@ import React from "react";
 import { useQuery } from "react-query";
 import Cat from "./Cat";
 
-const fetchCats = async () => {
+/**
+ * @function
+ * @param none
+ * @returns {object}
+ */
+
+function fetchCats() {
   const res = await fetch("https://cat-fact.herokuapp.com/facts/");
   return res.json();
-};
+}
+
+ /**
+ * Functional react component for cats list
+ * @function
+ * @param none
+ * @returns {JSX.Element} - Rendered component
+ */
 
 const Cats = () => {
   const { data, status } = useQuery("cats", fetchCats);

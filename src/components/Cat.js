@@ -1,5 +1,12 @@
 import React from "react";
 
+/**
+ * Functional react component for cat item
+ * @function
+ * @param {object} props - React props
+ * @returns {JSX.Element} - Rendered component
+ */
+
 const Cat = ({ item }) => {
   return (
     <div className="card">

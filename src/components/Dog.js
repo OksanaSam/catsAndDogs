@@ -1,5 +1,12 @@
 import React from "react";
 
+/**
+ * Functional react component for dog item
+ * @function
+ * @param {object} props - React props
+ * @returns {JSX.Element} - Rendered component
+ */
+
 const Dog = ({ dog }) => {
   return (
     <div className="card">
