@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { usePaginatedQuery } from "react-query";
-// import { useQuery } from "react-query";
 import Dog from "./Dog";
 
 /**
@@ -9,17 +8,12 @@ import Dog from "./Dog";
  * @returns {object}
  */
 
-const fetchMoreDogs = async (page) => {
+const fetchDogs = async (page) => {
   const res = await fetch(
     `https://api.thedogapi.com/v1/images/search?size=med&mime_types=jpg&format=json&has_breeds=true&order=RANDOM&page=${page}&limit=5`
   );
   return res.json();
 };
-
-// const fetchDogs = async () => {
-//   const res = await fetch("https://dog.ceo/api/breeds/list/all");
-//   return res.json();
-// };
 
 /**
  * Functional react component for dogs list
@@ -29,12 +23,10 @@ const fetchMoreDogs = async (page) => {
  */
 
 const Dogs = () => {
-  // const { data, status } = useQuery("breeds", fetchDogs);
-
   const [page, setPage] = useState(1);
   const { resolvedData, latestData, status } = usePaginatedQuery(
     ["moredogs", page],
-    fetchMoreDogs
+    fetchDogs
   );
 
   return (
@@ -60,9 +52,6 @@ const Dogs = () => {
               <Dog key={dog.id} dog={dog} />
             ))}
           </div>
-          {/* {Object.keys(data.message).map((breed, index) => (
-            <Dog key={index} breed={breed} />
-          ))} */}
         </div>
       ) : null}
     </div>
