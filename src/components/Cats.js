@@ -1,15 +1,16 @@
 import React from "react";
 import { useQuery } from "react-query";
 import Cat from "./Cat";
-
+ 
 /**
  * @function
  * @param none
  * @returns {object}
  */
 
-function fetchCats() {
+async function fetchCats() {
   const res = await fetch("https://cat-fact.herokuapp.com/facts/");
+  // console.log(res.json());
   return res.json();
 }
 
