@@ -9,7 +9,7 @@ function App() {
 
   return (
     <>
-      <div className="App">
+      <div data-test="component-app" className="App">
         <h1>Pet Info</h1>
         <Navbar setPage={setPage} />
         <div className="content">{page === "dogs" ? <Dogs /> : <Cats />}</div>

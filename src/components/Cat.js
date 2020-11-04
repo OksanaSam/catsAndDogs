@@ -7,12 +7,12 @@ import React from "react";
  * @returns {JSX.Element} - Rendered component
  */
 
-const Cat = ({ item }) => {
+const Cat = ( props ) => {
   return (
-    <div className="card">
+    <div data-test="component-cat" className="card">
       <h3>Cat Quote</h3>
-      <p> {item.text}</p>
-      <p>Upvotes - {item.upvotes}</p>
+      {/* <p>{item.text}</p> */}
+      <p>Upvotes - {props.item.upvotes}</p>
     </div>
   );
 };
